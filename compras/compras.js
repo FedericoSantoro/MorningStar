@@ -21,10 +21,10 @@ function sesionIniciada() {
     registro.setAttribute("style", "display:none");
   } else {
     sesion.innerHTML = `
-          <a href="iniciarSesion.html">Iniciar Sesion</a>
+          <a href="../iniciarSesion/iniciarSesion.html">Iniciar Sesion</a>
           `;
     registro.setAttribute("style", "display:block");
-    registro.innerHTML = `<a href="registrarse.html">Registrarse</a>`;
+    registro.innerHTML = `<a href="../registrarse/registrarse.html">Registrarse</a>`;
   }
 }
 
