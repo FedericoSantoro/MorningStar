@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="compras.css" />
+    <title>MorningStar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <h1>MorningStar</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li id="sesion"></li>
+          <li id="registro"></li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-cart-shopping carrito" id="carrito"></i
+            >
+          <span class="cantidadProductos" id="cantidadProductos"></span></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Carrito</h2>
+      <div class="carritoCompra" id="carritoCompra"></div>
+      <div class="precioTotal">
+        <span></span>
+        <!-- cambiar precio total -->
+        <h3 id="precioTotal"></h3>
+        <!-- deshabilitar boton si no hay nada y si no estas logeado-->
+        <button id="botonPagar">Pagar</button>
+      </div>
+    </main>
+
+    <footer>
+      <h2>MorningStar</h2>
+      <p>© All Rights Reserved</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="compras.js"></script>
+  </body>
+</html>

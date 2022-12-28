@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #e2e2e2;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #333333;
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0.8rem 10%;
+  top: 0;
+  z-index: 3;
+  background-attachment: fixed;
+}
+
+header h1 {
+  font-size: 24px;
+  z-index: 5;
+}
+
+header nav {
+  width: 20%;
+  z-index: 5;
+}
+
+header nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+header nav ul li {
+  font-size: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: background-color 0.5s ease-in;
+  }
+
+header nav ul li a:hover {
+    background-color: #ff4ea7;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: background-color 0.5s ease-in;
+  }
+
+main {
+  width: 550px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  border-radius: 40px;
+  height: 600px;
+  border: 1px solid #ff4ea7;
+}
+
+main h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+main form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 350px;
+}
+
+input {
+  background-color: white;
+  border: 1px solid #ff4ea7;
+  border-radius: 50px;
+  height: 43px;
+  width: 440px;
+  padding: 5px 25px;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #a7a7a7;
+}
+
+input[type="submit"] {
+  background-color: #ff4ea7;
+  color: white;
+  font-weight: bold;
+  width: 170px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="submit"]:hover {
+  background-color: #f187bc;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  color: #e2e2e2;
+  /* position: absolute;
+    bottom: 0; */
+}

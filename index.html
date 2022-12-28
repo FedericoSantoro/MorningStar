@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>MorningStar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <h1>MorningStar</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li id="sesion"></li>
+          <li id="registro"></li>
+          <li>
+            <a href="compras.html"
+              ><i class="fa-solid fa-cart-shopping carrito" id="carrito"></i
+            >
+          <span class="cantidadProductos" id="cantidadProductos"></span></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="portada">
+        <div class="slider">
+          <ul>
+            <li><img src="./Assets//Hero.jpg" alt="portada1" /></li>
+            <li><img src="./Assets//Hero2.jpg" alt="portada2" /></li>
+            <li><img src="./Assets//Hero3.jpg" alt="portada3" /></li>
+          </ul>
+          
+        </div>
+        <div class="portada-info">
+          <h2>La mejor tienda para vos</h2>
+          <p>
+            Desde anillos hasta perifericos para computadora, lo que quieras lo
+            tenemos
+          </p>
+        </div>
+      </section>
+      <section class="productos" id="productos">
+        <h2>Productos</h2>
+        <div class="categoria-productos">
+          <div class="categorias">
+            <h3>Categorías</h3>
+            <ul>
+              <li><button id="categoria1" class="categoriaActiva">Todo</button></li>
+              <li><button id="categoria2">Ropa de Hombre</button></li>
+              <li><button id="categoria3">Ropa de Mujer</button></li>
+              <li><button id="categoria4">Joyería</button></li>
+              <li><button id="categoria5">Electrónica</button></li>
+            </ul>
+          </div>
+          <!-- aca va el renderizado de los productos con js -->
+          <div class="listaProducto" id="listaProducto"></div>
+        </div>
+        <!-- aca van las paginas con js -->
+        <div class="navegacion" id="navegacion">
+          <i id="boton1" class="fa-solid fa-arrow-left flechaIzquierda"></i>
+          <p class="pagina" id="paginas"></p>
+          <i id="boton2" class="fa-solid fa-arrow-right flechaDerecha"></i>
+        </div>
+      </section>
+      <div class="contacto-info">
+        <section class="contacto">
+          <h2>Contacto</h2>
+          <div class="form-imagenes">
+            <div class="imagenes">
+              <img src="Assets/dudas.png" alt="Dudas" />
+              <div class="redes">
+                <a Target="_blank" href="https://instagram.com/modo.pink?igshid=YmMyMTA2M2Y="><i class="fa-brands fa-instagram logo"></i></a>
+                <a Target="_blank" href="https://www.instagram.com/p/CI9V4WRFts_LYSogcL_6rwOmPf7F4yWdRJsY7g0/?igshid=YmMyMTA2M2Y="><i class="fa-brands fa-facebook logo"></i></a>
+                <a Target="_blank" href="https://www.instagram.com/p/B3DfSOOJgW-3E1ao-Sv7KSz5Kwp_JPY8677T-E0/?igshid=YmMyMTA2M2Y="><i class="fa-brands fa-twitter logo"></i></a>
+              </div>
+            </div>
+            <form action="">
+              <input type="text" placeholder="Nombre" />
+              <input type="email" name="" id="" placeholder="Mail" />
+              <input type="tel" name="" id="" placeholder="Teléfono" />
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Mensaje"
+              ></textarea>
+              <input type="submit" value="Enviar" />
+            </form>
+          </div>
+        </section>
+
+        <span class="separacionContacto"></span>
+
+        <section class="informacion" id="contacto">
+          <h2>Sobre Nosotros</h2>
+          <p>
+            Somos una nueva tienda online con gran variedad de productos,
+            aseguramos la calidad de los mismos y buscamos expandirnos a un
+            mercado incluso mas amplio escuchando sus opiniones
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <h2>MorningStar</h2>
+      <p>© All Rights Reserved</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

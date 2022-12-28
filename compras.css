@@ -1,0 +1,348 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #e2e2e2;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+header {
+  background-color: #333333;
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0.8rem 10%;
+  top: 0;
+  z-index: 3;
+}
+
+header h1 {
+  font-size: 24px;
+  z-index: 5;
+}
+
+header nav {
+  width: 30%;
+  z-index: 5;
+}
+
+header nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+header nav ul li {
+  font-size: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+  position: relative;
+}
+
+.carrito {
+  color: #ff4ea7;
+  transition: color 1s ease;
+}
+
+nav ul li a span {
+  background: #f7a6cf;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 15px;
+  border-radius: 100%;
+  font-size: 15px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+nav ul li a .disabled {
+  display: none;
+}
+
+header nav ul li a i {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+}
+
+header nav ul li a:hover {
+  background-color: #ff4ea7;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+}
+
+header nav ul li a:hover i {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: color 0.5s ease-in;
+}
+
+.cerrarSesion {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 19px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+}
+
+.cerrarSesion:hover {
+  background-color: #ff4ea7;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+}
+
+main {
+  margin: 50px 0;
+  min-height: calc(100vh - 56px - 85px - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+main h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+main .carritoCompra {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  margin-top: 25px;
+}
+
+main .carritoCompra .producto {
+  background-color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  margin: 12.5px 0;
+}
+
+main .carritoCompra .producto span {
+  content: "";
+  height: 100%;
+  width: 10px;
+  display: block;
+  border-radius: 10px 0 0 10px;
+  position: absolute;
+  left: 0;
+}
+
+main .carritoCompra .producto .imagen-caracteristicas {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70%;
+  height: 100%;
+}
+
+main .carritoCompra .producto .imagen-caracteristicas img {
+  height: 100px;
+  max-width: 20%;
+}
+
+main .carritoCompra .producto .imagen-caracteristicas .nombre-precio {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  width: 50%;
+}
+
+.verde {
+  background-color: #68b900;
+}
+
+.naranja {
+  background-color: #ff7a00;
+}
+
+.morado {
+  background-color: #b01e68;
+}
+
+.celeste {
+  background-color: #00cad7;
+}
+
+main .carritoCompra .producto .cantidad {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+main .carritoCompra .producto .cantidad .botonMenos,
+main .carritoCompra .producto .cantidad .botonMas {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+main .carritoCompra .producto .cantidad .botonMenos:hover,
+main .carritoCompra .producto .cantidad .botonMas:hover {
+  cursor: pointer;
+}
+
+main .carritoCompra .producto .cantidad h3 {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #F6F6F6;
+  border-radius: 150px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+
+main .carritoCompra .producto .botonBorrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+}
+
+main .carritoCompra .producto .botonBorrar i {
+  font-size: 15px;
+  color: #ff7a00;
+}
+
+main .carritoCompra .producto .botonBorrar:hover i {
+  cursor: pointer;
+}
+
+main .carritoCompra .carroVacio {
+  background-color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+
+main .carritoCompra .carroVacio i {
+  font-size: 50px;
+  margin-right: 15px;
+}
+
+main .carritoCompra .carroVacio h3,
+main .precioTotal h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+main .precioTotal {
+  margin-top: 25px;
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  height: 150px;
+}
+
+main .precioTotal span {
+  content: "";
+  height: 100%;
+  width: 10px;
+  display: block;
+  background-color: #ff4ea7;
+  border-radius: 10px 0 0 10px;
+  position: absolute;
+  left: 0;
+}
+
+main .precioTotal .disabled {
+  cursor: auto;
+  background-color: grey;
+}
+
+main .precioTotal .disabled:hover {
+  cursor: auto;
+  background-color: grey;
+  
+}
+
+main .precioTotal button {
+  background-color: #fa57a9;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 15px 45px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+main .precioTotal button:hover {
+  cursor: pointer;
+  background-color: #fc80be;
+}
+
+
+
+footer {
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  color: #e2e2e2;
+}
