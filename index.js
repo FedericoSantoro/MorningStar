@@ -57,9 +57,9 @@ function deslogear() {
 
 function sesionIniciada() {
   const comprobacion = JSON.parse(localStorage.getItem("logeado"));
-  console.log(comprobacion);
   if (comprobacion) {
-    sesion.innerHTML = "";
+  console.log("Esta logeado");
+  sesion.innerHTML = "";
     const boton = document.createElement("button");
     boton.setAttribute("onclick", "deslogear()");
     boton.setAttribute("class", "cerrarSesion");
@@ -67,7 +67,8 @@ function sesionIniciada() {
     sesion.appendChild(boton);
     registro.setAttribute("style", "display:none");
   } else {
-    sesion.innerHTML = `
+  console.log("No esta logeado");
+  sesion.innerHTML = `
         <a href="./iniciarSesion/iniciarSesion.html">Iniciar Sesion</a>
         `;
     registro.setAttribute("style", "display:block");
@@ -105,10 +106,10 @@ function comprobarCantidadProductos() {
 function comprobarCarro() {
   if (localStorage.getItem("carro")) {
     carroCompras = JSON.parse(localStorage.getItem("carro"));
-    console.log("ya hay algo");
+    console.log("Ya hay algo en el carro");
   } else {
     carroCompras = [];
-    console.log("no hay nada");
+    console.log("No hay nada en el carro");
   }
   comprobarCantidadProductos();
 }
@@ -140,10 +141,10 @@ function agregarCarrito(titulo, precio, imagen, idProducto, color) {
 async function renderizarProductos(categoria, pagina, paginaActual, productos) {
   try {
     listaProductos.innerHTML = ``;
-    console.log("productos: ", productos);
-    console.log("categoria: ", categoria);
-    console.log("pagina actual: ", paginaActual);
-    console.log("pagina: ", pagina);
+    console.log("Productos: ", productos);
+    console.log("Categoria: ", categoria);
+    console.log("Pagina actual: ", paginaActual);
+    console.log("Muestra productos: ", pagina, " - ", pagina+4);
     let productosFiltrados;
     let color;
 
@@ -266,6 +267,9 @@ function cambiarPagina(action) {
 }
 
 async function init() {
+  window.addEventListener("scroll", headerNegro);
+  comprobarCarro();
+  sesionIniciada();
   const productos = await getProducts();
   renderizarProductos(categoria, pagina, paginaActual, productos);
   boton1.addEventListener("click", () => {
@@ -300,9 +304,6 @@ async function init() {
   window.addEventListener("storage", () => {
     sesionIniciada();
   });
-  window.addEventListener("scroll", headerNegro);
-  comprobarCarro();
-  sesionIniciada();
 }
 
 init();

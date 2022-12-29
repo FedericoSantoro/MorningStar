@@ -6,6 +6,7 @@ const navegacionHamburguesa = document.getElementById("navegacion");
 const iconoCantidadProductos = document.getElementById("cantidadProductos");
 
 let mostrado = false;
+let carroCompras = cargarDatos ();
 
 function mostrarNavbar() {
   const { scrollTop } = document.documentElement;
@@ -41,8 +42,9 @@ function deslogear() {
 
 function sesionIniciada() {
   const comprobacion = JSON.parse(localStorage.getItem("logeado"));
-  console.log(comprobacion);
+  
   if (comprobacion) {
+    console.log("Esta logeado");
     sesion.innerHTML = "";
     const boton = document.createElement("button");
     boton.setAttribute("onclick", "deslogear()");
@@ -51,6 +53,7 @@ function sesionIniciada() {
     sesion.appendChild(boton);
     registro.setAttribute("style", "display:none");
   } else {
+    console.log("No esta logeado");
     sesion.innerHTML = `
           <a href="../iniciarSesion/iniciarSesion.html">Iniciar Sesion</a>
           `;
@@ -61,14 +64,14 @@ function sesionIniciada() {
 
 function cargarDatos () {
   if (JSON.parse(localStorage.getItem("carro"))) {
+    console.log("Ya hay algo en el carro");
     return JSON.parse(localStorage.getItem("carro"))
   }
   else {
+    console.log("No hay nada en el carro");
     return []
   }
 }
-
-let carroCompras = cargarDatos ();
 
 function cambiarCantidad(accion, index) {
   let nuevoCarro;
@@ -110,7 +113,7 @@ function comprobacionRequisitos() {
 }
 
 function renderizarCarrito() {
-  console.log(carroCompras);
+  console.log("Productos en el carro: ", carroCompras);
   carritoCompra.innerHTML = ``;
   let precioTotal = 0,
     cantidad_Productos = 0;
@@ -191,8 +194,8 @@ function renderizarCarrito() {
 
 function init() {
   sesionIniciada();
-  renderizarCarrito();
   hamburguesa.addEventListener("click", mostrarNavbar);
+  renderizarCarrito();
 }
 
 init();
