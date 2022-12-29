@@ -482,9 +482,6 @@ footer {
   main .precioTotal {
     width: 90%;
   }
-
-  main .precioTotal button {
-  }
 }
 
 @media (max-width: 425px) {
@@ -597,9 +594,6 @@ footer {
 
   main .carritoCompra .producto .imagen-caracteristicas img {
     height: auto;
-  }
-
-  main .carritoCompra .producto .imagen-caracteristicas {
   }
 
   main .carritoCompra .producto .imagen-caracteristicas .nombre-precio .nombre {

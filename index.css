@@ -866,9 +866,6 @@ footer {
     width: 50%;
   }
 
-  .informacionProducto button {
-  }
-
   .icon-info::after {
     left: -200px;
     width: 200px;
