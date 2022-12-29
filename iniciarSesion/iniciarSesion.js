@@ -2,6 +2,9 @@ const formulario = document.getElementById("formulario");
 const usuario = document.getElementById("usuario");
 const mail = document.getElementById("mail");
 const password = document.getElementById("password");
+const hamburguesa = document.getElementById("hamburguesa");
+const header = document.getElementById("header");
+const navegacion = document.getElementById("navegacion");
 
 function handleSubmit(e) {
   const email = mail.value;
@@ -29,4 +32,19 @@ function handleSubmit(e) {
   }
 }
 
+let mostrado = false;
+
+function mostrarNavbar() {
+  if (mostrado) {
+    header.setAttribute("class", "");
+    navegacion.setAttribute("class", "");
+    mostrado = false;
+  } else {
+    header.setAttribute("class", "navbarMostradoHeader");
+    navegacion.setAttribute("class", "navbarMostrado");
+    mostrado = true;
+  }
+}
+
+hamburguesa.addEventListener("click", mostrarNavbar);
 formulario.addEventListener("submit", handleSubmit);

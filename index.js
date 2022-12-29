@@ -12,6 +12,38 @@ const header = document.getElementById("header");
 const carrito = document.getElementById("carrito");
 const sesion = document.getElementById("sesion");
 const registro = document.getElementById("registro");
+const hamburguesa = document.getElementById("hamburguesa");
+const navegacionHamburguesa = document.getElementById("navegacion");
+const iconoCantidadProductos = document.getElementById("cantidadProductos");
+
+let mostrado = false;
+
+function headerNegro() {
+  const { scrollTop } = document.documentElement;
+  const top = scrollTop === 0;
+  if (!mostrado && top) {
+    header.className = "";
+    carrito.className = "fa-solid fa-cart-shopping carrito";
+  } else {
+    header.className = "color";
+    carrito.className = "fa-solid fa-cart-shopping carrito rosita";
+  }
+}
+
+function mostrarNavbar() {
+  const { scrollTop } = document.documentElement;
+  const top = scrollTop === 0;
+  if (mostrado) {
+    header.setAttribute("class", "");
+    navegacionHamburguesa.setAttribute("class", "");
+    mostrado = false;
+  } else {
+    header.setAttribute("class", "navbarMostradoHeader");
+    navegacionHamburguesa.setAttribute("class", "navbarMostrado");
+    mostrado = true;
+  }
+  headerNegro();
+}
 
 function deslogear() {
   localStorage.setItem("logeado", false);
@@ -35,7 +67,7 @@ function sesionIniciada() {
         <a href="./iniciarSesion/iniciarSesion.html">Iniciar Sesion</a>
         `;
     registro.setAttribute("style", "display:block");
-    registro.innerHTML = `<a href="./registrarse/registrarse.html">Registrarse</a>`
+    registro.innerHTML = `<a href="./registrarse/registrarse.html">Registrarse</a>`;
   }
 }
 
@@ -45,17 +77,7 @@ window.addEventListener("storage", () => {
   sesionIniciada();
 });
 
-window.addEventListener("scroll", () => {
-  const { scrollTop } = document.documentElement;
-  const top = scrollTop === 0;
-  if (top) {
-    header.className = "";
-    carrito.className = "fa-solid fa-cart-shopping carrito";
-  } else {
-    header.className = "color";
-    carrito.className = "fa-solid fa-cart-shopping carrito rosita";
-  }
-});
+window.addEventListener("scroll", headerNegro);
 
 async function getProducts() {
   try {
@@ -68,19 +90,20 @@ async function getProducts() {
 }
 let carroCompra;
 
-function comprobarCantidadProductos () {
+function comprobarCantidadProductos() {
   let cantidad_Productos = 0;
   for (let i = 0; i < carroCompras.length; i++) {
-    cantidad_Productos += carroCompras[i].cantidad
+    cantidad_Productos += carroCompras[i].cantidad;
   }
-  if ( cantidad_Productos !== 0 ) {
-    document.getElementById(
-      "cantidadProductos"
-    ).innerHTML = `${cantidad_Productos}`;
-    document.getElementById("cantidadProductos").setAttribute("class", "cantidadProductos")
-  }
-  else {
-    document.getElementById("cantidadProductos").setAttribute("class", "cantidadProductos disabled")
+  if (cantidad_Productos !== 0) {
+    iconoCantidadProductos.innerHTML = `${cantidad_Productos}`;
+    document
+      .getElementById("cantidadProductos")
+      .setAttribute("class", "cantidadProductos");
+  } else {
+    document
+      .getElementById("cantidadProductos")
+      .setAttribute("class", "cantidadProductos disabled");
   }
 }
 
@@ -92,7 +115,7 @@ function comprobarCarro() {
     carroCompras = [];
     console.log("no hay nada");
   }
-  comprobarCantidadProductos()
+  comprobarCantidadProductos();
 }
 
 comprobarCarro();
@@ -117,7 +140,7 @@ function agregarCarrito(titulo, precio, imagen, idProducto, color) {
     ];
   }
   localStorage.setItem("carro", JSON.stringify(carroCompras));
-  comprobarCantidadProductos()
+  comprobarCantidadProductos();
   console.log(carroCompras);
 }
 
@@ -204,42 +227,42 @@ function cambiarCategoria(nuevaCategoria) {
   categoria = nuevaCategoria;
   pagina = 0;
   paginaActual = 1;
-  switch ( nuevaCategoria ) {
+  switch (nuevaCategoria) {
     case "all":
-    categoria1.setAttribute("class", "categoriaActiva")
-    categoria2.setAttribute("class", "")
-    categoria3.setAttribute("class", "")
-    categoria4.setAttribute("class", "")
-    categoria5.setAttribute("class", "")
-    break;
+      categoria1.setAttribute("class", "categoriaActiva");
+      categoria2.setAttribute("class", "");
+      categoria3.setAttribute("class", "");
+      categoria4.setAttribute("class", "");
+      categoria5.setAttribute("class", "");
+      break;
     case "men's clothing":
-    categoria2.setAttribute("class", "categoriaActiva")
-    categoria1.setAttribute("class", "")
-    categoria3.setAttribute("class", "")
-    categoria4.setAttribute("class", "")
-    categoria5.setAttribute("class", "")
-    break;
+      categoria2.setAttribute("class", "categoriaActiva");
+      categoria1.setAttribute("class", "");
+      categoria3.setAttribute("class", "");
+      categoria4.setAttribute("class", "");
+      categoria5.setAttribute("class", "");
+      break;
     case "women's clothing":
-    categoria3.setAttribute("class", "categoriaActiva")
-    categoria2.setAttribute("class", "")
-    categoria1.setAttribute("class", "")
-    categoria4.setAttribute("class", "")
-    categoria5.setAttribute("class", "")
-    break;
+      categoria3.setAttribute("class", "categoriaActiva");
+      categoria2.setAttribute("class", "");
+      categoria1.setAttribute("class", "");
+      categoria4.setAttribute("class", "");
+      categoria5.setAttribute("class", "");
+      break;
     case "jewelery":
-    categoria4.setAttribute("class", "categoriaActiva")
-    categoria2.setAttribute("class", "")
-    categoria3.setAttribute("class", "")
-    categoria1.setAttribute("class", "")
-    categoria5.setAttribute("class", "")
-    break;
+      categoria4.setAttribute("class", "categoriaActiva");
+      categoria2.setAttribute("class", "");
+      categoria3.setAttribute("class", "");
+      categoria1.setAttribute("class", "");
+      categoria5.setAttribute("class", "");
+      break;
     case "electronics":
-    categoria5.setAttribute("class", "categoriaActiva")
-    categoria2.setAttribute("class", "")
-    categoria3.setAttribute("class", "")
-    categoria4.setAttribute("class", "")
-    categoria1.setAttribute("class", "")
-    break;
+      categoria5.setAttribute("class", "categoriaActiva");
+      categoria2.setAttribute("class", "");
+      categoria3.setAttribute("class", "");
+      categoria4.setAttribute("class", "");
+      categoria1.setAttribute("class", "");
+      break;
   }
 }
 
@@ -284,6 +307,7 @@ async function init() {
     cambiarCategoria("electronics");
     renderizarProductos(categoria, pagina, paginaActual, productos);
   });
+  hamburguesa.addEventListener("click", mostrarNavbar);
 }
 
 init();

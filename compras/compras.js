@@ -1,6 +1,37 @@
 const sesion = document.getElementById("sesion");
 const registro = document.getElementById("registro");
 const carritoCompra = document.getElementById("carritoCompra");
+const hamburguesa = document.getElementById("hamburguesa");
+const navegacionHamburguesa = document.getElementById("navegacion");
+const iconoCantidadProductos = document.getElementById("cantidadProductos");
+
+let mostrado = false;
+
+function mostrarNavbar() {
+  const { scrollTop } = document.documentElement;
+  const top = scrollTop === 0;
+  if (mostrado) {
+    header.setAttribute("class", "");
+    navegacionHamburguesa.setAttribute("class", "");
+    iconoCantidadProductos.setAttribute(
+      "class",
+      "cantidadProductos cantidadProductosDisabled"
+    );
+    mostrado = false;
+  } else {
+    if (carroCompras.length > 0) {
+      iconoCantidadProductos.setAttribute("class", "cantidadProductos");
+    } else {
+      iconoCantidadProductos.setAttribute(
+        "class",
+        "cantidadProductos cantidadProductosDisabled"
+      );
+    }
+    header.setAttribute("class", "navbarMostradoHeader");
+    navegacionHamburguesa.setAttribute("class", "navbarMostrado");
+    mostrado = true;
+  }
+}
 
 function deslogear() {
   localStorage.setItem("logeado", false);
@@ -111,7 +142,7 @@ function renderizarCarrito() {
         />
         <div class="nombre-precio">
           <h3 class="nombre">${carroCompras[i].titulo}</h3>
-          <h3 class="precio">$${precio}</h3>
+          <h3 class="precio">$${precio.toFixed(2)}</h3>
         </div>
       </div>
       <div class="cantidad">
@@ -127,19 +158,14 @@ function renderizarCarrito() {
       document.getElementById(`botonBorrar${i}`).appendChild(botonBorrar);
       document.getElementById(
         "precioTotal"
-      ).innerHTML = `Total: $${precioTotal}`;
+      ).innerHTML = `$${precioTotal.toFixed(2)}`;
       cantidad_Productos += carroCompras[i].cantidad;
     }
-    document.getElementById(
-      "cantidadProductos"
-    ).innerHTML = `${cantidad_Productos}`;
-    document
-      .getElementById("cantidadProductos")
-      .setAttribute("class", "cantidadProductos");
+    iconoCantidadProductos.innerHTML = `${cantidad_Productos}`;
+    iconoCantidadProductos.setAttribute("class", "cantidadProductos");
   } else {
-    document
-      .getElementById("cantidadProductos")
-      .setAttribute("class", "cantidadProductos disabled");
+    console.log("putamadre");
+    iconoCantidadProductos.setAttribute("class", "cantidadProductosDisabled");
 
     carritoCompra.innerHTML = `
     <div class="carroVacio">
@@ -158,6 +184,7 @@ function renderizarCarrito() {
 function init() {
   sesionIniciada();
   renderizarCarrito();
+  hamburguesa.addEventListener("click", mostrarNavbar);
 }
 
 init();

@@ -26,7 +26,7 @@ header {
   padding: 0.8rem 10%;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 4;
   background-attachment: fixed;
   transition: background 1s;
 }
@@ -66,7 +66,6 @@ header nav ul li a {
   border-radius: 50px;
   transition: background-color 0.5s ease-in;
   position: relative;
-
 }
 
 nav ul li a span {
@@ -87,25 +86,25 @@ nav ul li a .disabled {
 }
 
 header nav ul li a i {
-    text-decoration: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 50px;
-    transition: background-color 0.5s ease-in;
-  }
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+}
 
 header nav ul li a:hover {
-    background-color: #ff4ea7;
-    padding: 5px 10px;
-    border-radius: 50px;
-    transition: background-color 0.5s ease-in;
+  background-color: #ff4ea7;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
 }
 
 header nav ul li a:hover i {
-    color: white;
-    padding: 5px 10px;
-    border-radius: 50px;
-    transition: color 0.5s ease-in;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: color 0.5s ease-in;
 }
 
 .cerrarSesion {
@@ -120,10 +119,14 @@ header nav ul li a:hover i {
 }
 
 .cerrarSesion:hover {
-    background-color: #ff4ea7;
-    padding: 5px 10px;
-    border-radius: 50px;
-    transition: background-color 0.5s ease-in;
+  background-color: #ff4ea7;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in;
+}
+
+.hamburguesa {
+  display: none;
 }
 
 main {
@@ -308,7 +311,7 @@ main {
   background-color: white;
   margin: 15px 0;
   border-radius: 10px;
-  height: 150px;
+  height: 175px;
   position: relative;
 }
 
@@ -457,7 +460,7 @@ main {
   position: absolute;
   font: 20px/24px Arial;
   width: 400px;
-  z-index: 4;
+  z-index: 2;
 }
 
 .icon-info:hover {
@@ -469,7 +472,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  z-index: 3;
 }
 
 .icon-info:hover::after {
@@ -558,6 +561,9 @@ main {
   color: #ff4ea7;
   font-size: 35px;
   height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contacto-info .contacto .form-imagenes {
@@ -673,11 +679,13 @@ main {
   color: #ff4ea7;
   font-size: 35px;
   height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contacto-info .informacion p {
   color: white;
-  /* font-size: 24px; */
   font-size: 30px;
   height: 90%;
   display: flex;
@@ -694,4 +702,448 @@ footer {
   align-items: center;
   justify-content: center;
   color: #e2e2e2;
+}
+
+@media (max-width: 1024px) {
+  header nav {
+    width: 70%;
+  }
+
+  .icon-info::after {
+    left: -400px;
+  }
+
+  .categorias {
+    margin-right: 15px;
+    width: auto;
+  }
+
+  .portada h2 {
+    font-size: 80px;
+  }
+
+  .portada p {
+    font-size: 40px;
+  }
+
+  .contacto-info .contacto {
+    width: 70%;
+  }
+
+  .form-imagenes .imagenes {
+    margin-right: 20px;
+  }
+
+  .contacto-info .contacto h2,
+  .contacto-info .informacion h2 {
+    font-size: 30px;
+  }
+
+  .contacto-info .informacion p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 15px;
+    width: calc(100% - 30px);
+  }
+
+  header nav {
+    background-color: #333333;
+    height: calc(100vh - 57px);
+    width: 160px;
+    right: -160px;
+    top: 57px;
+    position: absolute;
+    transition: right 0.5s ease-in;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  header nav ul li {
+    margin: 15px 0;
+  }
+
+  .navbarMostrado {
+    right: 0;
+    width: 160px;
+    position: fixed;
+    transition: all 0.5s ease-out;
+  }
+
+  .navbarMostradoHeader {
+    background-color: #333333;
+  }
+
+  .hamburguesa {
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+  }
+
+  .cerrarSesion {
+    border-radius: 0;
+  }
+
+  .cerrarSesion:hover {
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 0;
+    transition: background-color 0.5s ease-in;
+  }
+
+  .hamburguesa:hover {
+    cursor: pointer;
+  }
+
+  .portada {
+    width: 100%;
+  }
+
+  .portada h2 {
+    font-size: 40px;
+  }
+
+  .portada p {
+    font-size: 20px;
+  }
+
+  .productos {
+    width: 90%;
+  }
+
+  .productos .categoria-productos {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .categorias {
+    width: 40%;
+  }
+
+  .listaProducto {
+    width: 100%;
+  }
+
+  .informacionProducto h3 {
+    font-size: 16px;
+  }
+
+  .precio {
+    font-size: 16px;
+  }
+
+  .cantidadProductosDisabled {
+    display: none;
+  }
+
+  .listaProducto .producto {
+    padding-left: 10px;
+    width: calc(100% - 10px);
+  }
+
+  .rating-precio {
+    width: 60%;
+  }
+
+  .informacionProducto {
+    width: 50%;
+  }
+
+  .informacionProducto button {
+  }
+
+  .icon-info::after {
+    left: -200px;
+    width: 200px;
+  }
+
+  .rating p {
+    font-size: 14px;
+  }
+
+  header nav ul li {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  header nav ul li a {
+    width: 150px;
+  }
+
+  header nav ul li a:hover {
+    border-radius: 0;
+    width: 100%;
+    /* background-color: rgba(255, 78, 167, 0.70); */
+    background-color: transparent;
+  }
+
+  .contacto-info {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+  }
+
+  .contacto-info .contacto {
+    width: calc(90% - 51px);
+    margin: 25px 0;
+  }
+
+  .contacto-info .contacto .form-imagenes {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .contacto-info .contacto .form-imagenes .imagenes img {
+    width: 60%;
+    margin-bottom: 25px;
+  }
+
+  .contacto-info .contacto .form-imagenes .imagenes {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .contacto-info .contacto .form-imagenes .imagenes .redes .logo {
+    font-size: 45px;
+  }
+
+  .contacto-info .contacto .form-imagenes form {
+    width: 60%;
+  }
+
+  .contacto-info span {
+    height: 2px;
+    width: 80%;
+  }
+
+  .contacto-info .informacion {
+    width: 90%;
+    margin: 25px 0;
+  }
+
+  .contacto-info .informacion h2 {
+    margin-bottom: 15px;
+  }
+
+  .contacto-info .informacion p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 425px) {
+  header {
+    padding: 15px 15px;
+    width: calc(100% - 30px);
+  }
+
+  header nav {
+    background-color: #333333;
+    height: calc(100vh - 57px);
+    width: 160px;
+    right: -160px;
+    top: 57px;
+    position: absolute;
+    transition: right 0.5s ease-in;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  header nav ul li {
+    margin: 15px 0;
+  }
+
+  .navbarMostrado {
+    right: 0;
+    width: 160px;
+    position: fixed;
+    transition: all 0.5s ease-out;
+  }
+
+  .navbarMostradoHeader {
+    background-color: #333333;
+  }
+
+  .hamburguesa {
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+  }
+
+  .cerrarSesion {
+    border-radius: 0;
+  }
+
+  .cerrarSesion:hover {
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 0;
+    transition: background-color 0.5s ease-in;
+  }
+
+  .hamburguesa:hover {
+    cursor: pointer;
+  }
+
+  .portada {
+    width: 100%;
+  }
+
+  .portada h2 {
+    font-size: 40px;
+  }
+
+  .portada p {
+    font-size: 20px;
+  }
+
+  .productos {
+    width: 90%;
+  }
+
+  .productos .categoria-productos {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .categorias {
+    width: calc(100% - 48px);
+  }
+
+  .listaProducto {
+    width: 100%;
+  }
+
+  .informacionProducto h3 {
+    font-size: 16px;
+  }
+
+  .precio {
+    font-size: 16px;
+  }
+
+  .producto .imagenProducto img {
+    width: 100%;
+    height: auto;
+  }
+
+  .listaProducto .producto {
+    padding-left: 10px;
+    width: calc(100% - 10px);
+  }
+
+  .rating-precio {
+    width: 100%;
+  }
+
+  .informacionProducto {
+    width: 50%;
+  }
+
+  .informacionProducto button {
+    font-size: 12px;
+  }
+
+  .icon-info::after {
+    left: -200px;
+    width: 200px;
+  }
+
+  .rating p {
+    font-size: 14px;
+  }
+
+  header nav ul li {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .informacionProducto button:hover {
+    font-size: 12px;
+    
+  }
+
+  header nav ul li a {
+    width: 150px;
+  }
+
+  header nav ul li a:hover {
+    border-radius: 0;
+    width: 100%;
+    /* background-color: rgba(255, 78, 167, 0.70); */
+    background-color: transparent;
+  }
+
+  .contacto-info {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+  }
+
+  .contacto-info .contacto {
+    width: calc(90% - 51px);
+    margin: 25px 0;
+  }
+
+  .contacto-info .contacto .form-imagenes {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .contacto-info .contacto .form-imagenes .imagenes img {
+    display: none;
+  }
+
+  .contacto-info .contacto .form-imagenes .imagenes {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .contacto-info .contacto .form-imagenes .imagenes .redes .logo {
+    font-size: 30px;
+  }
+
+  .contacto-info span {
+    height: 2px;
+    width: 80%;
+  }
+
+  .contacto-info .informacion {
+    width: 90%;
+    margin: 25px 0;
+  }
+
+  .contacto-info .informacion h2 {
+    margin-bottom: 15px;
+  }
+
+  .contacto-info .informacion p {
+    font-size: 24px;
+  }
 }

@@ -3,6 +3,9 @@ const usuario = document.getElementById("usuario");
 const mail = document.getElementById("mail");
 const pass1 = document.getElementById("pass1");
 const pass2 = document.getElementById("pass2");
+const hamburguesa = document.getElementById("hamburguesa");
+const header = document.getElementById("header");
+const navegacion = document.getElementById("navegacion");
 
 function handleSubmit(e) {
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -34,4 +37,19 @@ function handleSubmit(e) {
   }
 }
 
+let mostrado = false;
+
+function mostrarNavbar() {
+  if (mostrado) {
+    header.setAttribute("class", "");
+    navegacion.setAttribute("class", "");
+    mostrado = false;
+  } else {
+    header.setAttribute("class", "navbarMostradoHeader");
+    navegacion.setAttribute("class", "navbarMostrado");
+    mostrado = true;
+  }
+}
+
+hamburguesa.addEventListener("click", mostrarNavbar);
 formulario.addEventListener("submit", handleSubmit);
