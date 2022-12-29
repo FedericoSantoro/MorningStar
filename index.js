@@ -16,7 +16,11 @@ const hamburguesa = document.getElementById("hamburguesa");
 const navegacionHamburguesa = document.getElementById("navegacion");
 const iconoCantidadProductos = document.getElementById("cantidadProductos");
 
+let categoria = "all";
+let pagina = 0;
+let paginaActual = 1;
 let mostrado = false;
+let carroCompra;
 
 function headerNegro() {
   const { scrollTop } = document.documentElement;
@@ -71,14 +75,6 @@ function sesionIniciada() {
   }
 }
 
-sesionIniciada();
-
-window.addEventListener("storage", () => {
-  sesionIniciada();
-});
-
-window.addEventListener("scroll", headerNegro);
-
 async function getProducts() {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -88,7 +84,6 @@ async function getProducts() {
     console.log(error);
   }
 }
-let carroCompra;
 
 function comprobarCantidadProductos() {
   let cantidad_Productos = 0;
@@ -118,8 +113,6 @@ function comprobarCarro() {
   comprobarCantidadProductos();
 }
 
-comprobarCarro();
-
 function agregarCarrito(titulo, precio, imagen, idProducto, color) {
   let buscarProducto = carroCompras.find(
     (producto) => producto.idProducto === idProducto
@@ -143,10 +136,6 @@ function agregarCarrito(titulo, precio, imagen, idProducto, color) {
   comprobarCantidadProductos();
   console.log(carroCompras);
 }
-
-let categoria = "all",
-  pagina = 0,
-  paginaActual = 1;
 
 async function renderizarProductos(categoria, pagina, paginaActual, productos) {
   try {
@@ -308,6 +297,12 @@ async function init() {
     renderizarProductos(categoria, pagina, paginaActual, productos);
   });
   hamburguesa.addEventListener("click", mostrarNavbar);
+  window.addEventListener("storage", () => {
+    sesionIniciada();
+  });
+  window.addEventListener("scroll", headerNegro);
+  comprobarCarro();
+  sesionIniciada();
 }
 
 init();

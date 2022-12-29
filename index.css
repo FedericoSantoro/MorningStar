@@ -795,6 +795,10 @@ footer {
     border-radius: 0;
   }
 
+  .cantidadProductosDisabled {
+    display: none;
+  }
+
   .cerrarSesion:hover {
     background-color: transparent;
     padding: 5px 10px;
@@ -1084,7 +1088,6 @@ footer {
 
   .informacionProducto button:hover {
     font-size: 12px;
-    
   }
 
   header nav ul li a {

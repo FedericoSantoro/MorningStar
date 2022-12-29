@@ -365,6 +365,10 @@ footer {
   color: #e2e2e2;
 }
 
+.cantidadProductosDisabled {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   header nav {
     width: 60%;

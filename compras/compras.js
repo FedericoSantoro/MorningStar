@@ -59,7 +59,16 @@ function sesionIniciada() {
   }
 }
 
-let carroCompras = JSON.parse(localStorage.getItem("carro"));
+function cargarDatos () {
+  if (JSON.parse(localStorage.getItem("carro"))) {
+    return JSON.parse(localStorage.getItem("carro"))
+  }
+  else {
+    return []
+  }
+}
+
+let carroCompras = cargarDatos ();
 
 function cambiarCantidad(accion, index) {
   let nuevoCarro;
@@ -164,7 +173,6 @@ function renderizarCarrito() {
     iconoCantidadProductos.innerHTML = `${cantidad_Productos}`;
     iconoCantidadProductos.setAttribute("class", "cantidadProductos");
   } else {
-    console.log("putamadre");
     iconoCantidadProductos.setAttribute("class", "cantidadProductosDisabled");
 
     carritoCompra.innerHTML = `
