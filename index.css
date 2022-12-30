@@ -618,6 +618,11 @@ main {
   color: white;
 }
 
+.form-imagenes form input:focus {
+  outline: none;
+  border: none;
+}
+
 .form-imagenes form input[type="submit"]:hover {
   background-color: #be6e96;
   border-radius: 25px;
@@ -645,6 +650,11 @@ main {
   resize: none;
   min-height: 150px;
   max-height: 150px;
+}
+
+.form-imagenes form textarea:focus {
+  border: none;
+  outline: none;
 }
 
 .form-imagenes form textarea::placeholder {
@@ -765,15 +775,15 @@ footer {
 
 @media (max-width: 768px) {
   header {
-    padding: 15px 15px;
-    width: calc(100% - 30px);
+    padding: 15px 35px;
+    width: calc(100% - 70px);
   }
 
   header nav {
     background-color: #333333;
     height: calc(100vh - 57px);
-    width: 160px;
-    right: -160px;
+    width: 40%;
+    right: -40%;
     top: 57px;
     position: absolute;
     transition: right 0.5s ease-in;
@@ -793,7 +803,7 @@ footer {
 
   .navbarMostrado {
     right: 0;
-    width: 160px;
+    width: 40%;
     position: fixed;
     transition: all 0.5s ease-out;
   }
@@ -812,6 +822,9 @@ footer {
 
   .cerrarSesion {
     border-radius: 0;
+    display: block;
+    width: 100%;
+    text-align: start;
   }
 
   .cantidadProductosDisabled {
@@ -989,19 +1002,42 @@ footer {
   .contacto-info .informacion p {
     font-size: 24px;
   }
+
+  
+  header nav ul li a:hover i {
+    padding: 0;
+  }
+
+  header nav ul li:hover {
+    background-color: rgba(255, 78, 167, 0.7);
+  }
+
+  header nav ul li a {
+    width: 100%;
+    display: block;
+  }
+
+  header nav ul li a i {
+    padding: 0;
+  }
+
+  nav ul li a span {
+    left: 24px;
+    top: 0;
+  }
 }
 
 @media (max-width: 425px) {
   header {
-    padding: 15px 15px;
-    width: calc(100% - 30px);
+    padding: 15px 25px;
+    width: calc(100% - 50px);
   }
 
   header nav {
     background-color: #333333;
     height: calc(100vh - 57px);
-    width: 160px;
-    right: -160px;
+    width: 50%;
+    right: -50%;
     top: 57px;
     position: absolute;
     transition: right 0.5s ease-in;
@@ -1021,7 +1057,7 @@ footer {
 
   .navbarMostrado {
     right: 0;
-    width: 160px;
+    width: 50%;
     position: fixed;
     transition: all 0.5s ease-out;
   }

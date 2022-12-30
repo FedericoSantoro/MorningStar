@@ -184,9 +184,17 @@ main .carritoCompra .producto .imagen-caracteristicas {
   height: 100%;
 }
 
-main .carritoCompra .producto .imagen-caracteristicas img {
+main .carritoCompra .producto .imagen-caracteristicas .imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100px;
   max-width: 20%;
+}
+
+main .carritoCompra .producto .imagen-caracteristicas img {
+  height: 100%;
+  width: auto;
 }
 
 main .carritoCompra .producto .imagen-caracteristicas .nombre-precio {
@@ -392,11 +400,11 @@ footer {
   header nav {
     background-color: #333333;
     height: calc(100vh - 57px);
-    width: 160px;
-    right: -150px;
+    width: 40%;
+    right: -40%;
     top: 57px;
-    position: absolute;
-    transition: right 0.5s ease-in;
+    position: fixed;
+    transition: all 0.5s ease-in;
   }
 
   header nav ul {
@@ -413,7 +421,7 @@ footer {
 
   .navbarMostrado {
     right: 0;
-    width: 160px;
+    width: 40%;
     position: fixed;
     transition: all 0.5s ease-out;
   }
@@ -428,6 +436,9 @@ footer {
 
   .cerrarSesion {
     border-radius: 0;
+    display: block;
+    width: 100%;
+    text-align: start;
   }
 
   .cerrarSesion:hover {
@@ -457,6 +468,21 @@ footer {
     background-color: transparent;
   }
 
+  main .carritoCompra .producto .imagen-caracteristicas .imagen {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  main .carritoCompra .producto .imagen-caracteristicas img {
+    height: auto;
+    width: auto;
+    min-width: 100px;
+  }
+
   .cantidadProductosDisabled {
     display: none;
   }
@@ -482,19 +508,41 @@ footer {
   main .precioTotal {
     width: 90%;
   }
+
+  header nav ul li a:hover i {
+    padding: 0;
+  }
+
+  header nav ul li:hover {
+    background-color: rgba(255, 78, 167, 0.7);
+  }
+
+  header nav ul li a {
+    width: 100%;
+    display: block;
+  }
+
+  header nav ul li a i {
+    padding: 0;
+  }
+
+  nav ul li a span {
+    left: 24px;
+    top: 0;
+  }
 }
 
 @media (max-width: 425px) {
   header {
-    padding: 15px 15px;
-    width: calc(100% - 30px);
+    padding: 15px 25px;
+    width: calc(100% - 50px);
   }
 
   header nav {
     background-color: #333333;
     height: calc(100vh - 57px);
-    width: 160px;
-    right: -160px;
+    width: 50%;
+    right: -50%;
     top: 57px;
     position: absolute;
     transition: right 0.5s ease-in;
@@ -514,7 +562,7 @@ footer {
 
   .navbarMostrado {
     right: 0;
-    width: 160px;
+    width: 50%;
     position: fixed;
     transition: all 0.5s ease-out;
   }
@@ -545,10 +593,6 @@ footer {
   header nav ul li {
     width: 100%;
     border-radius: 0;
-  }
-
-  header nav ul li a {
-    width: 150px;
   }
 
   header nav ul li a:hover {
@@ -610,19 +654,25 @@ footer {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    margin-top: 20px;
   }
 
   main .carritoCompra .producto .imagen-caracteristicas .imagen {
-    width: 200px;
+    width: auto;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  main .carritoCompra .producto .botonBorrar {
+    top: 25px;
+    right: 30px;
+  }
+
   main .carritoCompra .producto .imagen-caracteristicas img {
     height: auto;
-    width: 100%;
+    width: auto;
   }
 
   main .carritoCompra .producto .imagen-caracteristicas .nombre-precio {
