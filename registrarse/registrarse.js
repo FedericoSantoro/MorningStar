@@ -21,6 +21,7 @@ let mostrado = false;
 
 function showAlert(id) {
   document.getElementById(id).setAttribute("class", "alertas mostrarAlerta");
+  document.getElementById("usuarioExistente").innerHTML = `${usuario.value}`;
   overlay.setAttribute("class", "overlay mostrarAlerta");
 }
 
@@ -71,7 +72,7 @@ function mostrarNavbar() {
   }
 }
 
-function deleteAlert( id ) {
+function deleteAlert(id) {
   document.getElementById(id).setAttribute("class", "alertas");
   overlay.setAttribute("class", "overlay");
 }
@@ -79,11 +80,17 @@ function deleteAlert( id ) {
 function init() {
   hamburguesa.addEventListener("click", mostrarNavbar);
   formulario.addEventListener("submit", handleSubmit);
-  volverContraseñaDiferente.addEventListener("click", () => deleteAlert("alertaContraseñaDiferente"));
-  volverContraseñaIncumple.addEventListener("click", () => deleteAlert("alertaContraseñaIncumple"));
+  volverContraseñaDiferente.addEventListener("click", () =>
+    deleteAlert("alertaContraseñaDiferente")
+  );
+  volverContraseñaIncumple.addEventListener("click", () =>
+    deleteAlert("alertaContraseñaIncumple")
+  );
   volverMail.addEventListener("click", () => deleteAlert("alertaMail"));
   volverUsuario.addEventListener("click", () => deleteAlert("alertaUsuario"));
-  volverUsuarioIncumple.addEventListener("click", () => deleteAlert("alertaUsuarioIncumple"));
+  volverUsuarioIncumple.addEventListener("click", () =>
+    deleteAlert("alertaUsuarioIncumple")
+  );
 }
 
 init();

@@ -9,6 +9,7 @@ const overlay = document.getElementById("overlay");
 const volverContraseña = document.getElementById("volverContraseña");
 const volverMail = document.getElementById("volverMail");
 const volverUsuario = document.getElementById("volverUsuario");
+const volverUsuarioIncumple = document.getElementById("volverUsuarioIncumple");
 
 let mostrado = false;
 
@@ -19,24 +20,28 @@ function showAlert(id) {
 
 function handleSubmit(e) {
   e.preventDefault();
-  const email = mail.value;
-  const pass = password.value;
-  const comprobacion = JSON.parse(localStorage.getItem(usuario.value));
-  if (comprobacion) {
-    console.log(comprobacion);
-    if (comprobacion.email === email) {
-      if (comprobacion.pass === pass) {
-        localStorage.setItem("logeado", true);
-        formulario.reset();
-        showAlert("alertaRegistro");
+  if (usuario.value.length !== 0) {
+    const email = mail.value;
+    const pass = password.value;
+    const comprobacion = JSON.parse(localStorage.getItem(usuario.value));
+    if (comprobacion) {
+      console.log(comprobacion);
+      if (comprobacion.email === email) {
+        if (comprobacion.pass === pass) {
+          localStorage.setItem("logeado", true);
+          formulario.reset();
+          showAlert("alertaRegistro");
+        } else {
+          showAlert("alertaContraseña");
+        }
       } else {
-        showAlert("alertaContraseña");
+        showAlert("alertaMail");
       }
     } else {
-      showAlert("alertaMail");
+      showAlert("alertaUsuario");
     }
   } else {
-    showAlert("alertaUsuario");
+    showAlert("alertaUsuarioIncumple");
   }
 }
 
@@ -52,12 +57,13 @@ function mostrarNavbar() {
   }
 }
 
-function deleteAlert( id ) {
+function deleteAlert(id) {
   document.getElementById(id).setAttribute("class", "alertas");
   overlay.setAttribute("class", "overlay");
 }
 
 function init() {
+  volverUsuarioIncumple.addEventListener("click", () => deleteAlert("alertaUsuarioIncumple"))
   volverUsuario.addEventListener("click", () => deleteAlert("alertaUsuario"));
   volverContraseña.addEventListener("click", () =>
     deleteAlert("alertaContraseña")
