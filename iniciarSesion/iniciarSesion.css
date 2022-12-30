@@ -141,6 +141,10 @@ footer {
   bottom: 0; */
 }
 
+footer p {
+  font-size: 10px;
+}
+
 @media (max-width: 768px) {
   header nav {
     width: 40%;

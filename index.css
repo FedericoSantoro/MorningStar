@@ -715,6 +715,10 @@ footer {
   color: #e2e2e2;
 }
 
+footer p {
+  font-size: 10px;
+}
+
 .categoria-flecha button {
   font-size: 16px;
   display: none;

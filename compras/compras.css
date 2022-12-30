@@ -377,6 +377,11 @@ footer {
   display: none;
 }
 
+footer p {
+  margin: 3.5px 0;
+  font-size: 10px;
+}
+
 @media (max-width: 1024px) {
   header nav {
     width: 60%;
