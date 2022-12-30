@@ -160,6 +160,8 @@ function sesionIniciada() {
 async function getProducts() {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
+    boton1.setAttribute("class", "fa-solid fa-arrow-left flechaIzquierda");
+    boton2.setAttribute("class", "fa-solid fa-arrow-right flechaDerecha");
     return response.json();
   } catch (error) {
     console.log(error);

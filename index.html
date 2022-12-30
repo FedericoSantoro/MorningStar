@@ -105,13 +105,21 @@
             </ul>
           </div>
           <!-- aca va el renderizado de los productos con js -->
-          <div class="listaProducto" id="listaProducto"></div>
+          <div class="listaProducto" id="listaProducto">
+            <div class="productoVacio">
+              <span class="barraCargando"></span>
+              <div class="logoCargando">
+                <i class="fa-sharp fa-solid fa-spinner"></i>
+              </div>
+              <h2 class="tituloCargando">Cargando productos</h2>
+            </div>
+          </div>
         </div>
         <!-- aca van las paginas con js -->
         <div class="navegacion" id="navegacion">
-          <i id="boton1" class="fa-solid fa-arrow-left flechaIzquierda"></i>
+          <i id="boton1" class="fa-solid fa-arrow-left flechaIzquierda oculto"></i>
           <p class="pagina" id="paginas"></p>
-          <i id="boton2" class="fa-solid fa-arrow-right flechaDerecha"></i>
+          <i id="boton2" class="fa-solid fa-arrow-right flechaDerecha oculto"></i>
         </div>
       </section>
       <div class="contacto-info">

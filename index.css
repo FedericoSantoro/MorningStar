@@ -73,6 +73,66 @@ header nav ul li a {
   position: relative;
 }
 
+.productoVacio .logoCargando {
+  font-size: 80px;
+  display: block;
+  color: #b01e68;
+  animation: girar 1s infinite;
+}
+
+.productoVacio .tituloCargando {
+  color: #333333;
+}
+
+.productoVacio {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+  background-color: white;
+  margin: 15px 0;
+  border-radius: 10px;
+  height: 175px;
+  position: relative;
+}
+
+.barraCargando {
+  width: 10px;
+  height: 100%;
+  content: "";
+  display: block;
+  background-color: #ff4ea7;
+  border-radius: 10px 0 0 10px;
+  position: absolute;
+  left: 0;
+}
+
+@keyframes girar {
+  0% {transform: rotate(0turn);}
+  5%{transform: rotate(0.05turn);}
+  10%{transform: rotate(0.1turn);}
+  15%{transform: rotate(0.15turn);}
+  20%{transform: rotate(0.2turn);}
+  25%{transform: rotate(0.25turn);}
+  30%{transform: rotate(0.3turn);}
+  35%{transform: rotate(0.35turn);}
+  40%{transform: rotate(0.4turn);}
+  45%{transform: rotate(0.45turn);}
+  50%{transform: rotate(0.5turn);}
+  55%{transform: rotate(0.55turn);}
+  60%{transform: rotate(0.6turn);}
+  65%{transform: rotate(0.65turn);}
+  70%{transform: rotate(0.7turn);}
+  75%{transform: rotate(0.75turn);}
+  80%{transform: rotate(0.8turn);}
+  85%{transform: rotate(0.85turn);}
+  90%{transform: rotate(0.9turn);}
+  95%{transform: rotate(0.95turn);}
+  100%{transform: rotate(1turn);}
+}
+
 nav ul li a span {
   background: #f7a6cf;
   width: 15px;
@@ -191,6 +251,10 @@ header nav ul li a i {
   font-size: 60px;
   color: #CB0000;
   margin: 20px 0;
+}
+
+.navegacion .oculto {
+  display: none;
 }
 
 .mostrarAlerta {
@@ -1351,4 +1415,30 @@ footer p {
   footer p {
     font-size: 10px;
   }
+
+  .productoVacio {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 40px 10px;
+  }
+
+  .productoVacio .logoCargando {
+    font-size: 40px;
+  }
+
+  .barraCargando {
+    top: 0;
+    border-radius: 10px 10px 0 0;
+    height: 10px;
+    width: 100%;
+  }
+
+  .productoVacio .tituloCargando {
+    text-align: center;
+    font-size: 24px;
+  }
+
 }
