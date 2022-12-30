@@ -82,8 +82,36 @@
       <h2>MorningStar</h2>
       <p>© All Rights Reserved</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+    <!-- alerta correcta -->
+    <div id="alertaCompra" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Procediendo con la compra</h2>
+      <h3>Haga click en continuar</h3>
+      <button id="volverCompra" class="botonCorrecto">Continuar</button>
+    </div>
+    <div id="alertaSesion" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Sesión Cerrada</h2>
+      <h3>¡Hasta la proxima!</h3>
+      <button id="volverSesion" class="botonCorrecto">Volver</button>
+    </div>
+    <!-- alerta incorrecta -->
+    <div id="alertaNoSesion" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>No ha Iniciado Sesión</h2>
+      <h3>Por favor hagalo</h3>
+      <button id="volverNoSesion">Volver</button>
+    </div>
+    <div id="alertaVacio" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>Carro vacio</h2>
+      <h3>Debe haber al menos un producto</h3>
+      <button id="volverVacio">Volver</button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    
     <script src="compras.js"></script>
   </body>
 </html>

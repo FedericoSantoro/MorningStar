@@ -61,6 +61,7 @@
     <main>
       <h2>Registrarse</h2>
       <form action="../iniciarSesion/iniciarSesion.html" id="formulario">
+        
         <input type="text" placeholder="Usuario" id="usuario" />
         <input type="email" name="" id="mail" placeholder="Mail" />
         <input type="password" name="" id="pass1" placeholder="Contraseña" />
@@ -73,8 +74,47 @@
       <h2>MorningStar</h2>
       <p>© All Rights Reserved</p>
     </footer>
+    <!-- alerta correcta -->
+    <div id="alertaRegistro" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Usuario registrado correctamente</h2>
+      <h3>Por favor Inicie Sesión</h3>
+      <a href="../iniciarSesion//iniciarSesion.html">Continuar</a>
+    </div>
+    <!-- alerta incorrecta -->
+    <div id="alertaContraseñaDiferente" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>Las contraseñas no coinciden</h2>
+      <h3>Reviselas y vuelva a intentar</h3>
+      <button id="volverContraseñaDiferente">Volver</button>
+    </div>
+    <div id="alertaContraseñaIncumple" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>La contraseña debe tener al menos 8 caracteres</h2>
+      <h3>Revisela y vuelva a intentar</h3>
+      <button id="volverContraseñaIncumple">Volver</button>
+    </div>
+    <div id="alertaMail" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>Mail introducido es incorrecto</h2>
+      <h3>Reviselo y vuelva a intentar</h3>
+      <button id="volverMail">Volver</button>
+    </div>
+    <div id="alertaUsuarioIncumple" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>Campo de usuario vacio</h2>
+      <h3>Revise los datos y vuelva a intentar</h3>
+      <button id="volverUsuarioIncumple">Volver</button>
+    </div>
+    <div id="alertaUsuario" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>Usuario <span></span> ya fue ingresado</h2>
+      <h3>Revise los datos o Inicie Sesión</h3>
+      <button id="volverUsuario">Volver</button>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <div class="overlay" id="overlay"></div>
+    
     <script src="registrarse.js"></script>
   </body>
 </html>

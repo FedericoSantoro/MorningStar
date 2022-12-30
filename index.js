@@ -18,12 +18,24 @@ const iconoCantidadProductos = document.getElementById("cantidadProductos");
 const mostrarCategorias = document.getElementById("mostrarCategorias");
 const ocultarCategorias = document.getElementById("ocultarCategorias");
 const listaCategorias = document.getElementById("listaCategorias");
+const volverSesion = document.getElementById("volverSesion");
+const volverProducto = document.getElementById("volverProducto");
 
 let categoria = "all";
 let pagina = 0;
 let paginaActual = 1;
 let mostrado = false;
-let carroCompra;
+let carroCompras;
+
+function showAlert(id) {
+  document.getElementById(id).setAttribute("class", "alertas mostrarAlerta");
+  overlay.setAttribute("class", "overlay mostrarAlerta");
+}
+
+function deleteAlert( id ) {
+  document.getElementById(id).setAttribute("class", "alertas");
+  overlay.setAttribute("class", "overlay");
+}
 
 function mostrarFiltros ( mostrado ) {
   if ( mostrado ) {
@@ -51,7 +63,6 @@ function headerNegro() {
 }
 
 function mostrarNavbar() {
-  const { scrollTop } = document.documentElement;
   if (mostrado) {
     header.setAttribute("class", "");
     navegacionHamburguesa.setAttribute("class", "");
@@ -66,7 +77,7 @@ function mostrarNavbar() {
 
 function deslogear() {
   localStorage.setItem("logeado", false);
-  alert("Sesión cerrada correctamente");
+  showAlert("alertaSesion")
   sesionIniciada();
 }
 
@@ -94,8 +105,7 @@ function sesionIniciada() {
 async function getProducts() {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
-    productos = response.json();
-    return productos;
+    return response.json();
   } catch (error) {
     console.log(error);
   }
@@ -103,8 +113,8 @@ async function getProducts() {
 
 function comprobarCantidadProductos() {
   let cantidad_Productos = 0;
-  for (let i = 0; i < carroCompras.length; i++) {
-    cantidad_Productos += carroCompras[i].cantidad;
+  for (const producto of carroCompras) {
+    cantidad_Productos += producto.cantidad;
   }
   if (cantidad_Productos !== 0) {
     iconoCantidadProductos.innerHTML = `${cantidad_Productos}`;
@@ -130,17 +140,18 @@ function comprobarCarro() {
 }
 
 function agregarCarrito(titulo, precio, imagen, idProducto, color) {
+  showAlert("alertaProducto")
   let buscarProducto = carroCompras.find(
     (producto) => producto.idProducto === idProducto
   );
   if (buscarProducto) {
-    nuevoCarro = carroCompras.map((producto) => {
+    let nuevoCarro = carroCompras.map((producto) => {
       if (producto.idProducto === idProducto) {
         producto.cantidad++;
       }
       return producto;
     });
-    carroCompra = nuevoCarro;
+    carroCompras = nuevoCarro;
   } else {
     console.log(color);
     carroCompras = [
@@ -283,6 +294,8 @@ function cambiarPagina(action) {
 }
 
 async function init() {
+  volverProducto.addEventListener("click", () => deleteAlert("alertaProducto"))
+  volverSesion.addEventListener("click", () => deleteAlert("alertaSesion"))
   window.addEventListener("scroll", headerNegro);
   ocultarCategorias.addEventListener("click", () => mostrarFiltros(true))
   mostrarCategorias.addEventListener("click", () => mostrarFiltros(false))

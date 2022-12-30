@@ -171,7 +171,23 @@
       <h2>MorningStar</h2>
       <p>© All Rights Reserved</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- alerta correcta -->
+    <div id="alertaSesion" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Sesión Cerrada</h2>
+      <h3>¡Hasta la proxima!</h3>
+      <button id="volverSesion">Volver</button>
+    </div>
+    <div id="alertaProducto" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Producto agregado</h2>
+      <h3>El producto fue agregado al carro</h3>
+      <button id="volverProducto">Volver</button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
     <script src="index.js"></script>
   </body>
 </html>

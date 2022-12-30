@@ -93,6 +93,77 @@ header nav ul li a i {
   transition: background-color 0.5s ease-in;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9; /*Para que quede por encima del resto de las cosas*/
+
+  /*Efecto de Glassmorphismo*/
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+}
+
+.alertas {
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  z-index: 10;
+  top: calc(50% - 198px);
+  position: fixed;
+  display: none;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
+  text-align: center;
+  color: #333333;
+}
+
+.alertas h2 {
+  padding: 0 15px;
+}
+
+.alertas h3 {
+  margin: 20px 0;
+}
+
+.alertas button {
+  background-color: #36C233;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 20px;
+  width: auto;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in;
+}
+
+.alertas button:hover {
+  background-color: #47f144;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+.alertas .correcto {
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: #36C233;
+  margin: 20px 0;
+}
+
+.mostrarAlerta {
+  display: flex;
+}
+
 header nav ul li a:hover {
   background-color: #ff4ea7;
   padding: 5px 10px;
@@ -459,7 +530,7 @@ main {
   vertical-align: center;
   padding: 20px;
   position: absolute;
-  font: 20px/24px Arial;
+  font: 20px/24px Arial, sans-serif;
   width: 400px;
   z-index: 2;
 }
@@ -669,13 +740,6 @@ main {
   background-color: white;
 }
 
-.contacto-info .contacto .form-imagenes {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
 .contacto-info .informacion {
   width: 20%;
   height: 100%;
@@ -801,10 +865,6 @@ footer p {
     height: auto;
   }
 
-  header nav ul li {
-    margin: 15px 0;
-  }
-
   .navbarMostrado {
     right: 0;
     width: 40%;
@@ -911,10 +971,6 @@ footer p {
     font-size: 16px;
   }
 
-  .cantidadProductosDisabled {
-    display: none;
-  }
-
   .listaProducto .producto {
     padding-left: 10px;
     width: calc(100% - 10px);
@@ -940,10 +996,7 @@ footer p {
   header nav ul li {
     width: 100%;
     border-radius: 0;
-  }
-
-  header nav ul li a {
-    width: 150px;
+    margin: 15px 0;
   }
 
   header nav ul li a:hover {
@@ -964,11 +1017,6 @@ footer p {
   .contacto-info .contacto {
     width: calc(90% - 51px);
     margin: 25px 0;
-  }
-
-  .contacto-info .contacto .form-imagenes {
-    display: flex;
-    flex-flow: row nowrap;
   }
 
   .contacto-info .contacto .form-imagenes .imagenes img {
@@ -1053,10 +1101,6 @@ footer p {
     justify-content: space-evenly;
     align-items: flex-start;
     height: auto;
-  }
-
-  header nav ul li {
-    margin: 15px 0;
   }
 
   .navbarMostrado {
@@ -1191,14 +1235,11 @@ footer p {
   header nav ul li {
     width: 100%;
     border-radius: 0;
+    margin: 15px 0;
   }
 
   .informacionProducto button:hover {
     font-size: 16px;
-  }
-
-  header nav ul li a {
-    width: 150px;
   }
 
   header nav ul li a:hover {

@@ -4,13 +4,25 @@ const carritoCompra = document.getElementById("carritoCompra");
 const hamburguesa = document.getElementById("hamburguesa");
 const navegacionHamburguesa = document.getElementById("navegacion");
 const iconoCantidadProductos = document.getElementById("cantidadProductos");
+const volverCompra = document.getElementById("volverCompra");
+const volverSesion = document.getElementById("volverSesion");
+const volverNoSesion = document.getElementById("volverNoSesion");
+const volverVacio = document.getElementById("volverVacio");
 
 let mostrado = false;
 let carroCompras = cargarDatos();
 
+function showAlert(id) {
+  document.getElementById(id).setAttribute("class", "alertas mostrarAlerta");
+  overlay.setAttribute("class", "overlay mostrarAlerta");
+}
+
+function deleteAlert( id ) {
+  document.getElementById(id).setAttribute("class", "alertas");
+  overlay.setAttribute("class", "overlay");
+}
+
 function mostrarNavbar() {
-  const { scrollTop } = document.documentElement;
-  const top = scrollTop === 0;
   if (mostrado) {
     header.setAttribute("class", "");
     navegacionHamburguesa.setAttribute("class", "");
@@ -36,7 +48,7 @@ function mostrarNavbar() {
 
 function deslogear() {
   localStorage.setItem("logeado", false);
-  alert("Sesión cerrada correctamente");
+  showAlert("alertaSesion");
   sesionIniciada();
 }
 
@@ -102,12 +114,12 @@ function cambiarCantidad(accion, index) {
 function comprobacionRequisitos() {
   if (carroCompras.length > 0) {
     if (JSON.parse(localStorage.getItem("logeado")) === true) {
-      alert("Procediendo con la compra");
+      showAlert("alertaCompra");
     } else {
-      alert("No ha iniciado sesión, por favor hagalo y vuelva a intentar");
+      showAlert("alertaNoSesion");
     }
   } else {
-    alert("Debe tener al menos un item en el carrito");
+    showAlert("alertaVacio");
   }
 }
 
@@ -194,6 +206,10 @@ function renderizarCarrito() {
 }
 
 function init() {
+  volverVacio.addEventListener("click", () => deleteAlert("alertaVacio"));
+  volverNoSesion.addEventListener("click", () => deleteAlert("alertaNoSesion"));
+  volverSesion.addEventListener("click", () => deleteAlert("alertaSesion"));
+  volverCompra.addEventListener("click", () => deleteAlert("alertaCompra"));
   sesionIniciada();
   hamburguesa.addEventListener("click", mostrarNavbar);
   renderizarCarrito();

@@ -92,6 +92,106 @@ header nav ul li a i {
   transition: background-color 0.5s ease-in;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9; /*Para que quede por encima del resto de las cosas*/
+
+  /*Efecto de Glassmorphismo*/
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+}
+
+.alertas {
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  z-index: 10;
+  top: calc(50% - 198px);
+  position: fixed;
+  display: none;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
+  text-align: center;
+  color: #333333;
+}
+
+.alertas h2 {
+  padding: 0 15px;
+}
+
+.alertas h3 {
+  margin: 20px 0;
+}
+
+.alertas .botonCorrecto {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  background-color: #36C233;
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 24px;
+  display: block;
+  margin: auto;
+  width: auto;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in;
+}
+
+.alertas button {
+  background-color: #CB0000;
+  width: auto;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in;
+}
+
+.alertas button:hover {
+  background-color: #eb1717;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+.alertas .botonCorrecto:hover {
+  background-color: #47f144;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+.alertas .incorrecto {
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  color: #CB0000;
+  margin: 20px 0;
+}
+
+.alertas .correcto {
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: #36C233;
+  margin: 20px 0;
+}
+
+.mostrarAlerta {
+  display: flex;
+}
+
 header nav ul li a:hover {
   background-color: #ff4ea7;
   padding: 5px 10px;
@@ -420,10 +520,6 @@ footer p {
     height: auto;
   }
 
-  header nav ul li {
-    margin: 15px 0;
-  }
-
   .navbarMostrado {
     right: 0;
     width: 40%;
@@ -460,10 +556,7 @@ footer p {
   header nav ul li {
     width: 100%;
     border-radius: 0;
-  }
-
-  header nav ul li a {
-    width: 150px;
+    margin: 15px 0;
   }
 
   header nav ul li a:hover {
@@ -549,7 +642,7 @@ footer p {
     width: 50%;
     right: -50%;
     top: 57px;
-    position: absolute;
+    position: fixed;
     transition: right 0.5s ease-in;
   }
 
@@ -561,8 +654,8 @@ footer p {
     height: auto;
   }
 
-  header nav ul li {
-    margin: 15px 0;
+  .alertas {
+    width: 70%;
   }
 
   .navbarMostrado {
@@ -598,6 +691,7 @@ footer p {
   header nav ul li {
     width: 100%;
     border-radius: 0;
+    margin: 15px 0;
   }
 
   header nav ul li a:hover {

@@ -5,34 +5,40 @@ const password = document.getElementById("password");
 const hamburguesa = document.getElementById("hamburguesa");
 const header = document.getElementById("header");
 const navegacion = document.getElementById("navegacion");
+const overlay = document.getElementById("overlay");
+const volverContraseña = document.getElementById("volverContraseña");
+const volverMail = document.getElementById("volverMail");
+const volverUsuario = document.getElementById("volverUsuario");
+
+let mostrado = false;
+
+function showAlert(id) {
+  document.getElementById(id).setAttribute("class", "alertas mostrarAlerta");
+  overlay.setAttribute("class", "overlay mostrarAlerta");
+}
 
 function handleSubmit(e) {
+  e.preventDefault();
   const email = mail.value;
   const pass = password.value;
   const comprobacion = JSON.parse(localStorage.getItem(usuario.value));
   if (comprobacion) {
     console.log(comprobacion);
-    console.log(" mail viejo: ", comprobacion.email, " y mail nuevo: ", email);
     if (comprobacion.email === email) {
       if (comprobacion.pass === pass) {
-        alert("Iniciaste Sesion correctamente");
         localStorage.setItem("logeado", true);
         formulario.reset();
+        showAlert("alertaRegistro");
       } else {
-        alert("Contraseña incorrecta");
-        e.preventDefault();
+        showAlert("alertaContraseña");
       }
     } else {
-      alert("Mail incorrecto");
-      e.preventDefault();
+      showAlert("alertaMail");
     }
   } else {
-    alert("Usuario " + usuario.value + " no encontrado");
-    e.preventDefault();
+    showAlert("alertaUsuario");
   }
 }
-
-let mostrado = false;
 
 function mostrarNavbar() {
   if (mostrado) {
@@ -46,5 +52,19 @@ function mostrarNavbar() {
   }
 }
 
-hamburguesa.addEventListener("click", mostrarNavbar);
-formulario.addEventListener("submit", handleSubmit);
+function deleteAlert( id ) {
+  document.getElementById(id).setAttribute("class", "alertas");
+  overlay.setAttribute("class", "overlay");
+}
+
+function init() {
+  volverUsuario.addEventListener("click", () => deleteAlert("alertaUsuario"));
+  volverContraseña.addEventListener("click", () =>
+    deleteAlert("alertaContraseña")
+  );
+  volverMail.addEventListener("click", () => deleteAlert("alertaMail"));
+  hamburguesa.addEventListener("click", mostrarNavbar);
+  formulario.addEventListener("submit", handleSubmit);
+}
+
+init();

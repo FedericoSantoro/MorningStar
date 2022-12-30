@@ -58,7 +58,7 @@
 
     <main>
       <h2>Iniciar Sesión</h2>
-      <form action="../index.html" id="formulario">
+      <form id="formulario">
         <input type="text" placeholder="Usuario" id="usuario" />
         <input type="email" name="" id="mail" placeholder="Mail" />
         <input type="password" name="" id="password" placeholder="Contraseña" />
@@ -71,7 +71,35 @@
       <p>© All Rights Reserved</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- alerta correcta -->
+    <div id="alertaRegistro" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Sesión Iniciada</h2>
+      <h3>¡Bienvenido a MorningStar!</h3>
+      <a href="../index.html">Continuar</a>
+    </div>
+    <!-- alerta incorrecta -->
+    <div id="alertaUsuario" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>El usuario ingresado no existe</h2>
+      <h3>Reviselo y vuelva a intentar</h3>
+      <button id="volverUsuario">Volver</button>
+    </div>
+    <div id="alertaContraseña" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>La contraseña ingresada es incorrecta</h2>
+      <h3>Revisela y vuelva a intentar</h3>
+      <button id="volverContraseña">Volver</button>
+    </div>
+    <div id="alertaMail" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>El mail ingresado es incorrecto</h2>
+      <h3>Reviselas y vuelva a intentar</h3>
+      <button id="volverMail">Volver</button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
     <script src="iniciarSesion.js"></script>
   </body>
 </html>
