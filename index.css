@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@1&family=Lobster&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@0;1&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,6 +16,7 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-evenly;
+  font-family: 'IBM Plex Serif', serif;
 }
 
 header {
@@ -61,6 +65,7 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
+  font-family: 'IBM Plex Serif', serif;
   color: white;
   padding: 5px 10px;
   border-radius: 50px;
@@ -123,6 +128,7 @@ header nav ul li a i {
   box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
   text-align: center;
   color: #333333;
+  font-family: 'IBM Plex Serif', serif;
 }
 
 .alertas h2 {
@@ -181,6 +187,7 @@ header nav ul li a:hover i {
 .cerrarSesion {
   background: transparent;
   border: none;
+  font-family: 'IBM Plex Serif', serif;
   color: white;
   font-size: 19px;
   cursor: pointer;
@@ -201,6 +208,7 @@ header nav ul li a:hover i {
 }
 
 main {
+  font-family: 'IBM Plex Serif', serif;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -286,6 +294,8 @@ main {
 }
 
 .portada h2 {
+  font-style: italic;
+  font-family: 'IBM Plex Serif', serif;
   font-size: 100px;
   color: #ff4ea7;
   text-align: center;
@@ -296,6 +306,7 @@ main {
   color: white;
   text-align: center;
   margin-top: 5%;
+  font-family: 'IBM Plex Serif', serif;
 }
 
 .linkActivo {
@@ -673,7 +684,7 @@ main {
 }
 
 .contacto-info .contacto .form-imagenes form {
-  display: flex;
+    display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
@@ -683,10 +694,12 @@ main {
   background-color: #b01e68;
   border-radius: 25px;
   border: none;
+  font-size: 15px;
   padding: 5% 10%;
   width: 100%;
   margin: 10px 0;
   color: white;
+  font-family: 'IBM Plex Serif', serif;
 }
 
 .form-imagenes form input:focus {
@@ -721,6 +734,7 @@ main {
   resize: none;
   min-height: 150px;
   max-height: 150px;
+  font-family: 'IBM Plex Serif', serif;
 }
 
 .form-imagenes form textarea:focus {
@@ -761,7 +775,7 @@ main {
 
 .contacto-info .informacion p {
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -1268,6 +1282,7 @@ footer p {
   }
 
   .contacto-info .contacto .form-imagenes form {
+    
     width: 100%;
   }
 
