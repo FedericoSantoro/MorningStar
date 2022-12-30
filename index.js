@@ -20,6 +20,17 @@ const ocultarCategorias = document.getElementById("ocultarCategorias");
 const listaCategorias = document.getElementById("listaCategorias");
 const volverSesion = document.getElementById("volverSesion");
 const volverProducto = document.getElementById("volverProducto");
+const volverConsulta = document.getElementById("volverConsulta");
+const volverNombre = document.getElementById("volverNombre");
+const volverTelefono = document.getElementById("volverTelefono");
+const volverMail = document.getElementById("volverMail");
+const volverMensaje = document.getElementById("volverMensaje");
+const formulario = document.getElementById("formulario");
+const nombre = document.getElementById("nombre");
+const mail = document.getElementById("mail");
+const telefono = document.getElementById("telefono");
+const mensaje = document.getElementById("mensaje");
+const volverErrorConsulta = document.getElementById("volverErrorConsulta");
 
 let categoria = "all";
 let pagina = 0;
@@ -27,26 +38,70 @@ let paginaActual = 1;
 let mostrado = false;
 let carroCompras;
 
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  try {
+    const emailRegex =
+      /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if (nombre.value.length !== 0) {
+      if (emailRegex.test(mail.value)) {
+        if (telefono.value.length > 8) {
+          if (mensaje.value.length >= 10) {
+            const consultaValores = {
+              name: nombre.value,
+              phone: telefono.value,
+              email: mail.value,
+              message: mensaje.value,
+            };
+            console.log("Datos de la consulta: ", consultaValores);
+            const response = await fetch(`https://web-prodsuction-130d.up.railway.app/api/send-email`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(consultaValores),
+            });
+            if ( response.status === 200 ) {
+              showAlert("alertaConsulta");
+              formulario.reset();
+            }
+          } else {
+            showAlert("alertaMensaje");
+          }
+        } else {
+          showAlert("alertaTelefono");
+        }
+      } else {
+        showAlert("alertaMail");
+      }
+    } else {
+      showAlert("alertaNombre");
+    }
+  } catch (error) {
+    console.log(error);
+    showAlert("errorConsulta")
+  }
+}
+
 function showAlert(id) {
   document.getElementById(id).setAttribute("class", "alertas mostrarAlerta");
   overlay.setAttribute("class", "overlay mostrarAlerta");
 }
 
-function deleteAlert( id ) {
+function deleteAlert(id) {
   document.getElementById(id).setAttribute("class", "alertas");
   overlay.setAttribute("class", "overlay");
 }
 
-function mostrarFiltros ( mostrado ) {
-  if ( mostrado ) {
-    ocultarCategorias.setAttribute("class", "")
-    mostrarCategorias.setAttribute("class", "mostrarFlecha")
+function mostrarFiltros(mostrado) {
+  if (mostrado) {
+    ocultarCategorias.setAttribute("class", "");
+    mostrarCategorias.setAttribute("class", "mostrarFlecha");
     listaCategorias.setAttribute("class", "");
-  }
-  else {
-    ocultarCategorias.setAttribute("class", "mostrarFlecha")
-    mostrarCategorias.setAttribute("class", "")
-    listaCategorias.setAttribute("class", "mostrarCategorias")
+  } else {
+    ocultarCategorias.setAttribute("class", "mostrarFlecha");
+    mostrarCategorias.setAttribute("class", "");
+    listaCategorias.setAttribute("class", "mostrarCategorias");
   }
 }
 
@@ -77,7 +132,7 @@ function mostrarNavbar() {
 
 function deslogear() {
   localStorage.setItem("logeado", false);
-  showAlert("alertaSesion")
+  showAlert("alertaSesion");
   sesionIniciada();
 }
 
@@ -140,7 +195,7 @@ function comprobarCarro() {
 }
 
 function agregarCarrito(titulo, precio, imagen, idProducto, color) {
-  showAlert("alertaProducto")
+  showAlert("alertaProducto");
   let buscarProducto = carroCompras.find(
     (producto) => producto.idProducto === idProducto
   );
@@ -294,11 +349,18 @@ function cambiarPagina(action) {
 }
 
 async function init() {
-  volverProducto.addEventListener("click", () => deleteAlert("alertaProducto"))
-  volverSesion.addEventListener("click", () => deleteAlert("alertaSesion"))
+  volverErrorConsulta.addEventListener("click", () => deleteAlert("errorConsulta"))
+  formulario.addEventListener("submit", (e) => handleFormSubmit(e));
+  volverConsulta.addEventListener("click", () => deleteAlert("alertaConsulta"));
+  volverProducto.addEventListener("click", () => deleteAlert("alertaProducto"));
+  volverSesion.addEventListener("click", () => deleteAlert("alertaSesion"));
+  volverNombre.addEventListener("click", () => deleteAlert("alertaNombre"));
+  volverTelefono.addEventListener("click", () => deleteAlert("alertaTelefono"));
+  volverMail.addEventListener("click", () => deleteAlert("alertaMail"));
+  volverMensaje.addEventListener("click", () => deleteAlert("alertaMensaje"));
   window.addEventListener("scroll", headerNegro);
-  ocultarCategorias.addEventListener("click", () => mostrarFiltros(true))
-  mostrarCategorias.addEventListener("click", () => mostrarFiltros(false))
+  ocultarCategorias.addEventListener("click", () => mostrarFiltros(true));
+  mostrarCategorias.addEventListener("click", () => mostrarFiltros(false));
   comprobarCarro();
   sesionIniciada();
   const productos = await getProducts();

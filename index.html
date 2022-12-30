@@ -138,13 +138,13 @@
                 ></a>
               </div>
             </div>
-            <form action="">
-              <input type="text" placeholder="Nombre" />
-              <input type="email" name="" id="" placeholder="Mail" />
-              <input type="tel" name="" id="" placeholder="Teléfono" />
+            <form action="" id="formulario">
+              <input type="text" placeholder="Nombre" id="nombre"/>
+              <input type="email" name="" id="mail" placeholder="Mail" />
+              <input type="tel" name="" id="telefono" placeholder="Teléfono" />
               <textarea
                 name=""
-                id=""
+                id="mensaje"
                 cols="30"
                 rows="10"
                 placeholder="Mensaje"
@@ -177,13 +177,50 @@
       <i class="fa-solid fa-circle-check correcto"></i>
       <h2>Sesión Cerrada</h2>
       <h3>¡Hasta la proxima!</h3>
-      <button id="volverSesion">Volver</button>
+      <button id="volverSesion" class="botonCorrecto">Volver</button>
     </div>
     <div id="alertaProducto" class="alertas">
       <i class="fa-solid fa-circle-check correcto"></i>
       <h2>Producto agregado</h2>
       <h3>El producto fue agregado al carro</h3>
-      <button id="volverProducto">Volver</button>
+      <button id="volverProducto" class="botonCorrecto">Volver</button>
+    </div>
+    <div id="alertaConsulta" class="alertas">
+      <i class="fa-solid fa-circle-check correcto"></i>
+      <h2>Consulta enviada</h2>
+      <h3>Responderemos a la brevedad</h3>
+      <button id="volverConsulta" class="botonCorrecto">Volver</button>
+    </div>
+    <!-- alerta incorrecta -->
+    <div id="alertaNombre" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>El Nombre no puede estar vacio</h2>
+      <h3>Reviselo y vuelva a intentar</h3>
+      <button id="volverNombre" class="botonIncorrecto">Volver</button>
+    </div>
+    <div id="errorConsulta" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>La consulta no pudo ser enviada</h2>
+      <h3>Vuelva a intentar en un rato</h3>
+      <button id="volverErrorConsulta" class="botonIncorrecto">Volver</button>
+    </div>
+    <div id="alertaTelefono" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>El telefono debe tener 8 digitos como minimo</h2>
+      <h3>Reviselo y vuelva a intentar</h3>
+      <button id="volverTelefono" class="botonIncorrecto">Volver</button>
+    </div>
+    <div id="alertaMail" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>Mail introducido es incorrecto</h2>
+      <h3>Reviselo y vuelva a intentar</h3>
+      <button id="volverMail" class="botonIncorrecto">Volver</button>
+    </div>
+    <div id="alertaMensaje" class="alertas">
+      <i class="fa-solid fa-circle-xmark incorrecto"></i>
+      <h2>El mensaje debe tener al menos 10 caracteres</h2>
+      <h3>Reviselo y vuelva a intentar</h3>
+      <button id="volverMensaje" class="botonIncorrecto">Volver</button>
     </div>
 
     <div class="overlay" id="overlay"></div>
