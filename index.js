@@ -15,12 +15,28 @@ const registro = document.getElementById("registro");
 const hamburguesa = document.getElementById("hamburguesa");
 const navegacionHamburguesa = document.getElementById("navegacion");
 const iconoCantidadProductos = document.getElementById("cantidadProductos");
+const mostrarCategorias = document.getElementById("mostrarCategorias");
+const ocultarCategorias = document.getElementById("ocultarCategorias");
+const listaCategorias = document.getElementById("listaCategorias");
 
 let categoria = "all";
 let pagina = 0;
 let paginaActual = 1;
 let mostrado = false;
 let carroCompra;
+
+function mostrarFiltros ( mostrado ) {
+  if ( mostrado ) {
+    ocultarCategorias.setAttribute("class", "")
+    mostrarCategorias.setAttribute("class", "mostrarFlecha")
+    listaCategorias.setAttribute("class", "");
+  }
+  else {
+    ocultarCategorias.setAttribute("class", "mostrarFlecha")
+    mostrarCategorias.setAttribute("class", "")
+    listaCategorias.setAttribute("class", "mostrarCategorias")
+  }
+}
 
 function headerNegro() {
   const { scrollTop } = document.documentElement;
@@ -36,7 +52,6 @@ function headerNegro() {
 
 function mostrarNavbar() {
   const { scrollTop } = document.documentElement;
-  const top = scrollTop === 0;
   if (mostrado) {
     header.setAttribute("class", "");
     navegacionHamburguesa.setAttribute("class", "");
@@ -58,8 +73,8 @@ function deslogear() {
 function sesionIniciada() {
   const comprobacion = JSON.parse(localStorage.getItem("logeado"));
   if (comprobacion) {
-  console.log("Esta logeado");
-  sesion.innerHTML = "";
+    console.log("Esta logeado");
+    sesion.innerHTML = "";
     const boton = document.createElement("button");
     boton.setAttribute("onclick", "deslogear()");
     boton.setAttribute("class", "cerrarSesion");
@@ -67,8 +82,8 @@ function sesionIniciada() {
     sesion.appendChild(boton);
     registro.setAttribute("style", "display:none");
   } else {
-  console.log("No esta logeado");
-  sesion.innerHTML = `
+    console.log("No esta logeado");
+    sesion.innerHTML = `
         <a href="./iniciarSesion/iniciarSesion.html">Iniciar Sesion</a>
         `;
     registro.setAttribute("style", "display:block");
@@ -141,10 +156,11 @@ function agregarCarrito(titulo, precio, imagen, idProducto, color) {
 async function renderizarProductos(categoria, pagina, paginaActual, productos) {
   try {
     listaProductos.innerHTML = ``;
+    console.clear();
     console.log("Productos: ", productos);
     console.log("Categoria: ", categoria);
     console.log("Pagina actual: ", paginaActual);
-    console.log("Muestra productos: ", pagina, " - ", pagina+4);
+    console.log("Muestra productos: ", pagina, " - ", pagina + 4);
     let productosFiltrados;
     let color;
 
@@ -186,7 +202,7 @@ async function renderizarProductos(categoria, pagina, paginaActual, productos) {
                 <div class="producto">
                     <span class="${color}"></span>
                     <div class="imagenProducto">
-                      <img src="${productosFiltrados[i].image}" alt="Producto" />
+                      <img loading="lazy" src="${productosFiltrados[i].image}" alt="Producto" />
                     </div>
                     <div class="informacionProducto">
                       <h3>${productosFiltrados[i].title}</h3>
@@ -268,6 +284,8 @@ function cambiarPagina(action) {
 
 async function init() {
   window.addEventListener("scroll", headerNegro);
+  ocultarCategorias.addEventListener("click", () => mostrarFiltros(true))
+  mostrarCategorias.addEventListener("click", () => mostrarFiltros(false))
   comprobarCarro();
   sesionIniciada();
   const productos = await getProducts();

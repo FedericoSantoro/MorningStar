@@ -567,6 +567,13 @@ footer {
     width: calc(100% - 30px);
   }
 
+  main .carritoCompra .producto span {
+    height: 10px;
+    width: 100%;
+    top: 0;
+    border-radius: 10px 10px 0 0;
+  }
+
   main .carritoCompra .carroVacio h3,
   main .precioTotal h3 {
     text-align: center;
@@ -588,21 +595,49 @@ footer {
   }
 
   main .carritoCompra .producto {
-    padding: 0 10px;
-    width: calc(100% - 20px);
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: auto;
+  }
+
+  main .carritoCompra .producto .imagen-caracteristicas {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  main .carritoCompra .producto .imagen-caracteristicas .imagen {
+    width: 200px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   main .carritoCompra .producto .imagen-caracteristicas img {
     height: auto;
+    width: 100%;
+  }
+
+  main .carritoCompra .producto .imagen-caracteristicas .nombre-precio {
+    width: 80%;
+    margin: 20px 0;
   }
 
   main .carritoCompra .producto .imagen-caracteristicas .nombre-precio .nombre {
-    font-size: 16px;
+    font-size: 24px;
     text-align: center;
   }
 
   main .carritoCompra .producto .imagen-caracteristicas .nombre-precio .precio {
     font-size: 20px;
     text-align: center;
+    margin-top: 20px;
   }
 }

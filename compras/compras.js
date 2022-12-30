@@ -6,7 +6,7 @@ const navegacionHamburguesa = document.getElementById("navegacion");
 const iconoCantidadProductos = document.getElementById("cantidadProductos");
 
 let mostrado = false;
-let carroCompras = cargarDatos ();
+let carroCompras = cargarDatos();
 
 function mostrarNavbar() {
   const { scrollTop } = document.documentElement;
@@ -42,7 +42,7 @@ function deslogear() {
 
 function sesionIniciada() {
   const comprobacion = JSON.parse(localStorage.getItem("logeado"));
-  
+
   if (comprobacion) {
     console.log("Esta logeado");
     sesion.innerHTML = "";
@@ -62,14 +62,13 @@ function sesionIniciada() {
   }
 }
 
-function cargarDatos () {
+function cargarDatos() {
   if (JSON.parse(localStorage.getItem("carro"))) {
     console.log("Ya hay algo en el carro");
-    return JSON.parse(localStorage.getItem("carro"))
-  }
-  else {
+    return JSON.parse(localStorage.getItem("carro"));
+  } else {
     console.log("No hay nada en el carro");
-    return []
+    return [];
   }
 }
 
@@ -148,10 +147,12 @@ function renderizarCarrito() {
       <div class="producto">
       <span class="${carroCompras[i].color}"></span>
       <div class="imagen-caracteristicas">
-        <img
+        <div class="imagen"> 
+        <img loading="lazy"
           src="${carroCompras[i].imagen}"
           alt="Imagen producto"
         />
+        </div>
         <div class="nombre-precio">
           <h3 class="nombre">${carroCompras[i].titulo}</h3>
           <h3 class="precio">$${precio.toFixed(2)}</h3>

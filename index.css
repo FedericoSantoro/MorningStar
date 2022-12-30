@@ -289,7 +289,7 @@ main {
 
 .categoriaActiva {
   color: #b01e68;
-  font-weight: bolder;
+  font-weight: bold;
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
@@ -307,7 +307,8 @@ main {
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
+  padding: 0 10px;
+  width: calc(100% - 20px);
   background-color: white;
   margin: 15px 0;
   border-radius: 10px;
@@ -704,6 +705,11 @@ footer {
   color: #e2e2e2;
 }
 
+.categoria-flecha button {
+  font-size: 16px;
+  display: none;
+}
+
 @media (max-width: 1024px) {
   header nav {
     width: 70%;
@@ -724,6 +730,19 @@ footer {
 
   .portada p {
     font-size: 40px;
+  }
+
+  .producto .imagenProducto {
+    width: 20%;
+    height: 100%;
+    margin-left: 5px;
+  }
+  
+  .producto .imagenProducto img {
+    width: auto;
+    height: auto;
+    max-height: 80%;
+    max-width: 100%;
   }
 
   .contacto-info .contacto {
@@ -833,8 +852,34 @@ footer {
     align-items: center;
   }
 
+  .categoria-flecha {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .categoria-flecha .mostrarFlechao {
+    display: block;
+  }
+
+  .categoria-flecha .mostrarFlecha {
+    display: block;
+  }
+
+  .categorias ul {
+    display: none;
+  }
+
+  .categorias .mostrarCategorias {
+    display: block;
+  }
+
   .categorias {
     width: 40%;
+    height: auto;
+    margin: 0;
   }
 
   .listaProducto {
@@ -1040,11 +1085,17 @@ footer {
   }
 
   .informacionProducto h3 {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .precio {
     font-size: 16px;
+  }
+
+  .producto .imagenProducto {
+    width: 200px;
+    height: auto;
+    margin-top: 17px;
   }
 
   .producto .imagenProducto img {
@@ -1053,24 +1104,43 @@ footer {
   }
 
   .listaProducto .producto {
-    padding-left: 10px;
-    width: calc(100% - 10px);
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+  }
+
+  .flechita {
+    position: absolute;
+    top: 27px;
+    right: 30px;
+  }
+
+  .producto span {
+    height: 10px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    top: 0;
   }
 
   .rating-precio {
-    width: 100%;
+    width: 80%;
+    margin: 15px 0;
   }
 
   .informacionProducto {
-    width: 50%;
+    width: 80%;
+    margin: 15px 0;
   }
 
   .informacionProducto button {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .icon-info::after {
     left: -200px;
+    bottom: 40px;
     width: 200px;
   }
 
@@ -1084,7 +1154,7 @@ footer {
   }
 
   .informacionProducto button:hover {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   header nav ul li a {
@@ -1116,6 +1186,10 @@ footer {
     flex-flow: column nowrap;
   }
 
+  .contacto-info .contacto .form-imagenes form {
+    width: 100%;
+  }
+
   .contacto-info .contacto .form-imagenes .imagenes img {
     display: none;
   }
@@ -1144,6 +1218,14 @@ footer {
   }
 
   .contacto-info .informacion p {
-    font-size: 24px;
+    font-size: 16px;
+  }
+
+  footer h2 {
+    font-size: 20px;
+  }
+
+  footer p {
+    font-size: 10px;
   }
 }
