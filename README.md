@@ -1,6 +1,5 @@
 # MorningStar
-## MorningStar es una tienda de articulos variados donde podes conseguir lo que quieras.
-### Una nueva tienda online buscando expandirse a una mayor cantidad de productos.
+## MorningStar es una tienda de articulos variados donde podes conseguir lo que quieras. Una nueva tienda online buscando expandirse a una mayor cantidad de productos.
 
 
 ### Tecnologias: HTML, CSS y Javascript puro
